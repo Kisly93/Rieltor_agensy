@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from phonenumber_field.modelfields import PhoneNumberField
 
 class Flat(models.Model):
     owner = models.CharField('ФИО владельца', max_length=200)
@@ -48,7 +49,7 @@ class Flat(models.Model):
         db_index=True)
     new_building = models.BooleanField(null=True, blank=True)
     likes = models.ManyToManyField(User, blank=True, related_name='liked_flats')
-    
+    owner_pure_phone = PhoneNumberField('Нормализованный номер владельца', blank=True)
 
     def __str__(self):
         return f'{self.town}, {self.address} ({self.price}р.)'

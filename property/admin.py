@@ -17,6 +17,7 @@ class ComplaintAdmin(admin.ModelAdmin):
 
 class OwnerAdmin(admin.ModelAdmin):
     raw_id_fields = ('owner_apartment',)
+    list_display = ('owner_name',)
 
 
 

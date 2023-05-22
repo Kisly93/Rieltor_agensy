@@ -5,7 +5,7 @@ from django.db import migrations
 def connect_owner_apartments(apps, shcema_epitor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
-    for owner in Owner.objects.all():
+    for owner in Owner.objects.all().iterator():
         flats = Flat.objects.filter(owner_name=owner.owner_name)
         owner.owner_apartment.set(flats)
         owner.save()

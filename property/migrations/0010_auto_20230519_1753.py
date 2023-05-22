@@ -8,7 +8,7 @@ def get_flat_to_owner(apps, shcema_epitor):
     Owner = apps.get_model('property', 'Owner')
     for flat in Flat.objects.all().iterator():
         Owner.objects.get_or_create(
-            owner_name=flat.owner_name,
+            owner_name=flat.name,
             phonenumber=flat.owners_phonenumber,
             pure_phone=flat.owner_pure_phone
         )

@@ -7,7 +7,7 @@ def connect_owner_apartments(apps, shcema_epitor):
     Owner = apps.get_model('property', 'Owner')
     for owner in Owner.objects.all().iterator():
         flats = Flat.objects.filter(owner_name=owner.name)
-        owner.apartment.set(flats)
+        owner.apartments.set(flats)
         owner.save()
 
 

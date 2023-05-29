@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='complaint',
-            name='apartment',
+            name='apartments',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='complaints', to='property.Flat', verbose_name='Квартира, на которую пожаловались'),
         ),
         migrations.AlterField(
